@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>super-code</artifactId>
+        <groupId>cn.super</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <properties>
+        <bt-version>1.5</bt-version>
+    </properties>
+
+    <artifactId>super-bt</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.atomashpolskiy</groupId>
+            <artifactId>bt-core</artifactId>
+            <version>${bt-version}</version>
+        </dependency>
+        <!-- for the sake of keeping the core with minimum number of 3-rd party
+             dependencies HTTP tracker support is shipped as a separate module;
+             you may omit this dependency if only UDP trackers are going to be used -->
+        <dependency>
+            <groupId>com.github.atomashpolskiy</groupId>
+            <artifactId>bt-http-tracker-client</artifactId>
+            <version>${bt-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.atomashpolskiy</groupId>
+            <artifactId>bt-dht</artifactId>
+            <version>${bt-version}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

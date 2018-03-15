@@ -1,0 +1,265 @@
+﻿<!--
+Created by 超 on 2016/6/2. IDEA 14
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>宇宙百科</title>
+<!--jquery ui依赖-->
+<link href="css/index_style.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-2.1.1.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/jquery-ui.js"></script>
+  <link href="js/jquery-ui.css" rel="stylesheet">
+
+  <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+    <!--搜索框css-->
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/search-form.css">
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var i=0;
+            $("#changeBg").click(function(){
+                if(i==0){
+                    i++;
+                    $("body").css("background-image","url('img/bg2.jpg')");
+                }
+                else if(i==1){
+                    i++;
+                    $("body").css("background-image","url('img/bg3.jpg')");
+                }
+                else if(i==2){
+                    $("body").css("background-image","url('img/bg4.jpg')");
+                    i++;
+                }
+                else if(i==3){
+
+                    $("body").css("background-image","url('img/bgWhite.jpg')");
+                    i=0;
+                    // $("#t_search").attr("value",i);
+                }
+            });
+            $("body").css("background-image","url('img/bgWhite.jpg')");
+        })
+    </script>
+
+
+
+</head>
+<body style="overflow-y:scroll;"> <!--出现滚动条 style="overflow-y:scroll;"-->
+<div class="header" id="mydemo">
+	<div class="top_logo">
+
+    </div>
+
+	<div class="topcn" style="font:20px/18px 'microsoft yahei'; color:#0FF;text-align:center;">
+        <!--搜索框-->
+
+	  <p></p>
+
+	</div>
+    
+    <div class="nav">
+    	<a class="gv" href="#"><font color="red">首页</font></a>
+        <a class="gv" href="pages/index3.html">宇宙一览</a>
+        <a class="gv" href="pages/unversay_img.html">宇宙图解</a>
+        <a class="gv" href="pages/solay.html">太阳系</a>
+        <a class="gv" href="pages/science.html">科技频道</a>
+        <a class="gv" href="pages/contact.html">留言版</a>
+        <a class="gv" href="pages/about_us.html">关于我们</a>
+
+        <form onsubmit="submitFn(this, event);">
+            <div class="search-wrapper">
+                <div class="input-holder">
+                    <input id="search" type="text" class="search-input" placeholder="输入关键词" />
+                    <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+                </div>
+                <span class="close" onclick="searchToggle(this, event);"></span>
+                <div class="result-container">
+                </div>
+            </div>
+        </form>
+        <script type="text/javascript">
+
+            //自动补全搜索框
+            var word = [
+                "太阳系","银河系","银河系直径","太阳系有几大行星","太阳系是8大行星还是9大行星","水星","金星","地球","火星","木星","土星","天王星",
+                "宇宙","宇宙诞生多少年","宇宙的奥秘","海王星","冥王星","月球","太阳直径","太阳距离地球远近",
+                "何超 外号超人","何超 本站开发者","何超 软件1301","何超 大家叫他超锅或超人","外星文明","外星人存在吗","外星人解密","星系","星系是什么","星系与星座","星星为什么会闪",
+                "太阳寿命","太阳组成元素","地球诞生多少年前","光年","光年是多远","月球","月球直径",
+                "莉姐漂亮哒","莉姐么么哒","莉姐带我们飞","","","","","","",""
+            ];
+
+            $( "#search" ).autocomplete({
+                source: word
+            });
+            //自动补全搜索框
+
+            function searchToggle(obj, evt){
+                var container = $(obj).closest('.search-wrapper');
+
+                if(!container.hasClass('active')){
+                    container.addClass('active');
+                    evt.preventDefault();
+                }
+                else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+                    container.removeClass('active');
+
+                    container.find('.search-input').val('');
+
+                    container.find('.result-container').fadeOut(100, function(){$(this).empty();});
+                }
+            }
+
+            function submitFn(obj, evt){
+                value = $(obj).find('.search-input').val().trim();
+
+                _html = "正在搜索：";
+                if(!value.length){
+                    _html = "输入为空 请输入";
+                }
+                else{
+                    _html += "<b>" + value + "</b>";
+                }
+
+                $(obj).find('.result-container').html('<span>' + _html + '</span>');
+                $(obj).find('.result-container').fadeIn(100);
+
+                evt.preventDefault();
+            }
+        </script>
+
+
+      <!--轮播图-->
+        <div id="lunbotu">
+        <div class="ag7-main">
+          <div class="ag7-bannerslide">
+            <ul class="slidebox">
+              <li><a href="pages/solay.html" target="_blank"><img alt="马上跟新" src="images/big1.jpg" ></a></li>
+              <li><a href="pages/index5.html" target="_blank"><img alt="马上跟新" src="images/big2.jpg" ></a></li>
+              <li><a href="pages/reader.html" target="_blank	"><img alt="马上跟新" src="images/big3.jpg" ></a></li>
+              <li><a href="pages/index4.html" target="_blank	"><img alt="马上跟新？" src="images/big4.jpg" ></a></li>
+            </ul>
+            <div class="slideinfo">
+              <div class="slidetitle">
+                <h2></h2>
+                <h3></h3>
+              </div>
+              <div class="slidelist">
+                <ul>
+                  <li data-h1="八大行星介绍" data-h2="太阳系">
+                    <img width="50" height="22" src="images/s1.jpg" alt="">
+                  </li>
+                  <li data-h1="第三视角看银河系" data-h2="银河系">
+                    <img width="50" height="22" src="images/s2.jpg" alt="">
+                  </li>
+                  <li data-h1="宇宙诞生多少年" data-h2="宇宙">
+                    <img width="50" height="22" src="images/s3.jpg" alt="">
+                  </li>
+                  <li data-h1="星座图谱" data-h2="宇宙">
+                    <img width="50" height="22" src="images/s4.jpg" alt="">
+                  </li>
+                </ul>
+                <span class="mask"></span>
+              </div>
+            </div>
+           </div>
+         </div>
+      </div>
+      <!--轮播图结束-->
+
+        <!--测试位置<div style="width: 10000px; height: 300px; background: red"></div>-->
+
+
+
+      <div id="dialog" title="Super机器人为你服务" style="display: none;">
+
+          <font size="5" color="red">
+          <p align="center"><a href="javascript:void(0)">功能</a></p>
+          <p><a id="a_change_bg" href="javascript:void(0)">换背景</a></p>
+          <p><a id="about_us" href="javascript:void(0)">关注我们</a></p>
+          </font>
+      </div>
+
+
+
+        <div id="robot">
+            <img id="pic_robot" src="images/robot.gif" style="width:100px;height: 148px "/>
+        </div>
+      <!--/*设置页面机器人可拖动*/-->
+      <script type="text/javascript">
+          $("#robot").draggable();
+         /* $("#robot").resizable();*/
+          $("#pic_robot").resizable();
+          $("#robot").click(function(){
+           /* alert("开发中");*/
+            $( "#dialog" ).css("display","block");
+            $( "#dialog" ).dialog({
+              width:300,
+              top:500,
+              left:300,
+              height:300,
+             /*position:["right","top"]*/
+              position: { my: "right center", at: "right center", of: window }  //对话框初始位置
+            });
+
+            $("#a_change_bg").button();
+            $("#a_change_start_speed").button();
+            var i=0;
+            /*切换背景功能*/
+            $("#a_change_bg").click(function(){
+                if(i==0){
+                    i++;
+                    $(".header,.canvaszz").css("background-image","url('images/yzbg1.jpg')");
+
+                }
+                else if(i==1){
+                    i++;
+
+                    $(".header,.canvaszz").css("background-image","url('images/yzbg2.jpg')");
+                }
+                else if(i==2){
+                    $(".header,.canvaszz").css("background-image","url('images/yzbg3.jpg')");
+                    i=0;
+
+                }
+            })
+              $("#about_us").button();
+            $("#about_us").click(function () {
+                window.location="pages/contact.html";
+            })
+
+      });
+
+      </script>
+
+   </div>
+
+  <div class="canvaszz"> </div>
+  <canvas id="canvas"></canvas>
+    <div id="copyright" class="copyright_font">
+        <p align="center">Copyright ©2013-2016 SuperMan Corporation, All Rights Reserved</p>
+        <p align="center">隐私保护　超人公司　版权所有　鄂ICP证000007</p>
+        <p align="center">京网文[2014]2045-295号　互联网新闻信息服务许可</p>
+        <p align="center"></p>
+        <p align="center"></p>
+    </div>
+</div>
+
+<!--音乐开始 -->
+	<audio controls="true" autoplay="autoplay" class="audio">
+        <source src="css/Music.mp3" type="audio/mp3"> 
+        <source src="css/Music.ogg" type="audio/ogg"> 
+        <source src="css/Music.aac" type="audio/mp4"> 
+    </audio>
+<!--音乐结束-->
+
+
+<script type="text/javascript" src="js/index_bg_stars.js">
+    //html5 canvas画星星
+</script>
+
+</body>
+</html>
