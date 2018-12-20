@@ -1,8 +1,10 @@
 package cn.hc.algorithm.linkedlist;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 
 public class LinkedListCreate {
     public static void main(String[] args) {
@@ -10,6 +12,7 @@ public class LinkedListCreate {
         Node.printLinkedList(creator.createLinkedList(new ArrayList<>()));
         Node.printLinkedList(creator.createLinkedList(Arrays.asList(1)));
         Node.printLinkedList(creator.createLinkedList(Arrays.asList(1,2,3)));
+        File f = new File("");
     }
     /**
      * create a linked list
