@@ -113,7 +113,7 @@ public class AllSort {
     /**
      * 快速排序算法——partition
      *
-     * @param array
+     * @param array··       
      * @param start
      * @param end
      * @return
