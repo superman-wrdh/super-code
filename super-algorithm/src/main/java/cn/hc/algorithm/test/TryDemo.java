@@ -1,7 +1,7 @@
 package cn.hc.algorithm.test;
 
 public class TryDemo {
-    public static void main(String[] args) {
+    public static void main(StringTest[] args) {
         int j = query();
         System.out.println(j);
     }
