@@ -39,6 +39,8 @@ class ProxyHandler implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object result = null;
+        String methodName = method.getName();
+        System.out.println("run:" + methodName);
         result = method.invoke(tar, args);
         return result;
     }
