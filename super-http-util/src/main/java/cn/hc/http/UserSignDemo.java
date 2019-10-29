@@ -154,9 +154,11 @@ public class UserSignDemo {
     public static void main(String[] args) {
         UserSignDemo demo = new UserSignDemo();
         LocalDate today = LocalDate.now();
+        LocalDate yestaday = LocalDate.parse("2019-10-28");
 
         { // doSign
             boolean signed = demo.doSign(1000, today);
+            demo.doSign(1000,yestaday);
             if (signed) {
                 System.out.println("您已签到：" + formatDate(today, "yyyy-MM-dd"));
             } else {
