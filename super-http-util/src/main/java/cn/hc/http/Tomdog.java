@@ -1,6 +1,7 @@
 package cn.hc.http;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -29,14 +30,15 @@ public class Tomdog {
     public void receive(ServerSocket server) throws IOException {
         while (true) {
             Socket socket = server.accept();
-            OutputStream writer = socket.getOutputStream();
+            OutputStream response = socket.getOutputStream();
+            InputStream  request  = socket.getInputStream();
             String hello = "GET HTTP/1.1\r\n" +
                     "Content-Type: text/html;charset=utf-8\r\n" +
                     "\n\n" +
                     "<h5>hello tomdog</h5>";
 
-            writer.write(hello.getBytes());
-            writer.flush();
+            response.write(hello.getBytes());
+            response.flush();
             socket.close();
             System.out.println("over");
         }
