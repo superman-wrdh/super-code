@@ -7,6 +7,7 @@ import java.io.*;
 
 /**
  * Created by hc on 2017/7/4.
+ * java version <= 8
  */
 public class ImgBase64 {
     public static void main(String[] args) throws Exception{
