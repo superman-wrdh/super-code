@@ -8,6 +8,7 @@ import org.apache.http.entity.ContentType;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by hc on 2017/5/5.
@@ -30,18 +31,16 @@ public class TuringChatService {
     }
 
     public JSONObject getJSONMsg(Response response) {
-        response.setCharset(Charset.forName("utf-8"));
+        response.setCharset(StandardCharsets.UTF_8);
         String string = response.string();
-        JSONObject jsonObject = JSONObject.fromObject(string);
-        return jsonObject;
+        return JSONObject.fromObject(string);
     }
 
     public Result getResult(Response response) {
-        response.setCharset(Charset.forName("utf-8"));
+        response.setCharset(StandardCharsets.UTF_8);
         String string = response.string();
         Gson gson = new Gson();
-        Result result = gson.fromJson(string, Result.class);
-        return result;
+        return gson.fromJson(string, Result.class);
     }
 
 //    public static void main(String[] args) throws Exception {
