@@ -61,6 +61,13 @@
             <version>2.9.0</version>
         </dependency>
 
+        <!-- if java version >8  -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.2</version>
+        </dependency>
+
 
     </dependencies>
 
